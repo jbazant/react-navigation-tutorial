@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { ScreenWithPadding } from '../../Common/components/ScreenWithPadding';
-import { FlatList } from 'react-native';
 import { Card, ListItem, Icon } from 'react-native-elements';
 
 interface Props {

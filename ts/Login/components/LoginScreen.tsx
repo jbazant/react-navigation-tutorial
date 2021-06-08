@@ -2,15 +2,25 @@ import * as React from 'react';
 import { Button, Card, Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { CenteredScreen } from '../../Common/components/CenteredScreen';
-import { useCallback, useState } from 'react';
+import {useCallback, useState} from 'react';
 import { useMutation } from 'react-query';
 import { loginUser } from '../../Common/api';
+import {NavigationScreenProp} from 'react-navigation';
 
-export function LoginScreen() {
+interface Props {
+  navigation: NavigationScreenProp<any>
+}
+
+export function LoginScreen({ navigation }: Props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const loginMutation = useMutation(loginUser);
+  const loginMutation = useMutation(loginUser, {
+    onSuccess: data => {
+      // TODO save token
+      navigation.navigate('App')
+    }
+  });
 
   const onLoginCallback = useCallback(() => {
     loginMutation.mutate({ userName: username, password: password });
@@ -26,13 +36,13 @@ export function LoginScreen() {
         <Input
           placeholder="Joe.Doe"
           label="Username"
-          autoCapitalize={"none"}
+          autoCapitalize={'none'}
           leftIcon={<Icon name="user" size={24} color="black" />}
           onChangeText={setUsername}
         />
         <Input
           label="Password"
-          autoCapitalize={"none"}
+          autoCapitalize={'none'}
           placeholder="Your Password"
           leftIcon={<Icon name="lock" size={24} color="black" />}
           onChangeText={setPassword}

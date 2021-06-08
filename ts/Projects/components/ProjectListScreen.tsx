@@ -30,3 +30,7 @@ export function ProjectListScreen() {
     </ScreenWithPadding>
   );
 }
+
+ProjectListScreen.navigationParams = () => ({
+  title: 'My Projects',
+})

@@ -14,3 +14,7 @@ export function ProfileScreen() {
     </CenteredScreen>
   );
 }
+
+ProfileScreen.navigationParams = () => ({
+    title: 'My Profile',
+})

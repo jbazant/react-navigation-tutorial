@@ -1,7 +1,7 @@
 import { create } from 'apisauce';
 
 export const api = create({
-  baseURL: 'https://cloud.memsource.com/api2',
+  baseURL: 'https://cloud9.memsource.com/api2',
   headers: { Accept: 'application/json' },
 });
 

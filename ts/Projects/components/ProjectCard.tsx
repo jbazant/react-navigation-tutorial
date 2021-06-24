@@ -3,10 +3,10 @@ import { Card, ListItem, Icon } from 'react-native-elements';
 
 interface Props {
   project: {
-    name: string;
-    id: string;
-    client: string | null;
-    dateDue: string | null;
+    name: string,
+    id: string,
+    client: string | null,
+    dateDue: string | null,
   };
 }
 export function ProjectCard({ project: { name, id, client, dateDue } }: Props) {
